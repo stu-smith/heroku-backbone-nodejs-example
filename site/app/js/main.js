@@ -1,10 +1,11 @@
 require.config({
 	paths: {
-		jquery: '../../js/libs/jquery/jquery-cdn',
-		underscore: '../../js/libs/underscore/underscore-min',
-		Backbone: '../../js/libs/backbone/backbone-max',
-		Handlebars: '../../js/libs/handlebars/handlebars-lib',
-		async: '../../js/libs/async/async-min',
+		jquery: 'js/libs/jquery/jquery-cdn',
+		underscore: 'js/libs/underscore/underscore-min',
+		backbone: 'js/libs/backbone/backbone-max',
+		'backbone.queryparams': 'js/libs/backbone/backbone.queryparams',
+		handlebars: 'js/libs/handlebars/handlebars-lib',
+		async: 'js/libs/async/async-min',
 		templates: 'templates'
 	},
 	shim: {
@@ -17,15 +18,15 @@ require.config({
 		underscore: {
 			exports: '_'
 		},
-		Backbone: {
+		backbone: {
 			deps: ['underscore', 'jquery'],
-			exports: 'Backbone'
+			exports: 'backbone'
 		},
-		Handlebars: {
-			exports: 'Handlebars'
+		handlebars: {
+			exports: 'handlebars'
 		},
-		'js/libs/backbone/backbone.queryparams': {
-			deps: ['Backbone']
+		'backbone.queryparams': {
+			deps: ['backbone']
 		}
 	}
 });
@@ -33,7 +34,7 @@ require.config({
 require([
 	'js/launcher',
 	'jquery',
-	'js/libs/backbone/backbone.queryparams'
+	'backbone.queryparams'
 ], function (launcher) {
 
 	'use strict';

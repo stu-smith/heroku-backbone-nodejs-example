@@ -7,8 +7,12 @@
     module.exports.setupRouting = function (app, conn, cache) {
 
 		var translateFilename = function (url) {
-			if (url.indexOf('/app/js/js') === 0) {
-				return './site/app/js' + url.substring(10);
+			console.log('translateFilename:' + url);
+			if (url.indexOf('/app/js/libs') === 0) {
+				return './site/js/libs' + url.substring(12);
+			}
+			if (url.indexOf('/app/js') === 0) {
+				return './site/app/js' + url.substring(7);
 			}
 
 			if (url.indexOf('/app/js/templates') === 0) {
