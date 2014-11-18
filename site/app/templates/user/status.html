@@ -1,0 +1,41 @@
+
+{{#if loggedIn}}
+
+<ul class="nav">
+	<li>
+		<a href="#" data-href="/people">
+			People
+		</a>
+	</li>
+</ul>
+<ul class="nav pull-right">
+	<li class="dropdown" id="user-dropdown">
+		<a class="dropdown-toggle" data-toggle="dropdown" href="#user-dropdown">
+			{{user/email}}
+			<b class="caret"></b>
+		</a>
+		<ul class="dropdown-menu">
+			<li><a href="#" id="js-payment-start">Extend Licence</a></li>
+			<li><a href="#" id="js-logout">Logout</a></li>
+		</ul>
+	</li>
+</ul>
+
+{{else}}
+
+<ul class="nav pull-right">
+	<li>
+		<a href="#" data-href="/user/signin">
+			<i class="icon-home icon-white"></i>
+			Sign In
+		</a>
+	</li>
+	<li>
+		<a href="#" data-href="/user/new">
+			<i class="icon-plus icon-white"></i>
+			New User
+		</a>
+	</li>
+</ul>
+
+{{/if}}

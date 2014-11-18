@@ -1,0 +1,12 @@
+<ul class="breadcrumb">
+	{{#each routes}}
+		<li>
+			<a href="#" data-href="{{href}}">{{title}}</a>
+			<span class="divider">&rsaquo;</span>
+		</li>
+	{{/each}}
+
+	<li class="active">
+		{{current}}
+	</li>
+</ul>

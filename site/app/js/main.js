@@ -5,7 +5,7 @@ require.config({
 		backbone: 'js/libs/backbone/backbone-max',
 		'backbone.queryparams': 'js/libs/backbone/backbone.queryparams',
 		handlebars: 'js/libs/handlebars/handlebars-lib',
-		async: 'js/libs/async/async-min',
+		async: 'js/libs/async/async',
 		templates: 'templates'
 	},
 	shim: {

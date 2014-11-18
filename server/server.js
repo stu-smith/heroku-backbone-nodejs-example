@@ -85,7 +85,9 @@
 	app.listen(port);
 
 	process.on('uncaughtException', function (err) {
+		console.log('UNCAUGHT EXCEPTION')
 		console.log(err);
+		console.log(err.stack)
 	});
 
 }());

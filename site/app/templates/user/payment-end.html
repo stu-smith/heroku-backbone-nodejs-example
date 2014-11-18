@@ -1,0 +1,42 @@
+<h1>Complete Payment Process</h1>
+
+{{#if checking}}
+	<div class="loading row">
+		<div class="span6 offset3">
+			<div class="well down-1">
+				<p class="ajax-loading">{{checking}}</p>
+			</div>
+		</div>
+	</div>
+{{/if}}
+
+{{#if_lt status compare=0}}
+	<div class="alert alert-error">
+		<strong>Error:</strong> Failed to process payment.
+	</div>
+{{/if_lt}}
+
+{{#if_eq status compare=2}}
+	<div class="alert alert-info">
+		Payment successful.
+	</div>
+	
+	{{#if_before_today expiry}}
+		<p>
+			Your licence expired on {{long_date expiry}}.
+		</p>
+	{{/if_before_today}}
+
+	{{#if_after_today expiry}}
+		<p>
+			Your licence will expire on {{long_date expiry}}.
+		</p>
+	{{/if_after_today}}
+
+{{/if_eq}}
+
+{{#if_eq status compare=3}}
+	<div class="alert alert-error">
+		Payment failed.
+	</div>
+{{/if_eq}}

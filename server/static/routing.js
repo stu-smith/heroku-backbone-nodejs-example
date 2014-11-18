@@ -1,13 +1,12 @@
-(function () {
+(function() {
 
-    'use strict';
+	'use strict';
 
-    var doCache = !process.env.NO_CACHE;
+	var doCache = !process.env.NO_CACHE;
 
-    module.exports.setupRouting = function (app, conn, cache) {
+	module.exports.setupRouting = function(app, conn, cache) {
 
-		var translateFilename = function (url) {
-			console.log('translateFilename:' + url);
+		var translateFilename = function(url) {
 			if (url.indexOf('/app/js/libs') === 0) {
 				return './site/js/libs' + url.substring(12);
 			}
@@ -21,11 +20,11 @@
 			return './site' + url;
 		};
 
-		app.get('/css/site.css', function (req, res) {
+		app.get('/css/site.css', function(req, res) {
 			cache.sendCachedLessFile('/css/site.css', './site/css/less/custom.less', res);
 		});
 
-		app.get('/app/js/site:cache.js', function (req, res) {
+		app.get('/app/js/site:cache.js', function(req, res) {
 			var options = {
 				baseUrl: "./site/app",
 				appdir: "./site/app",
@@ -40,7 +39,7 @@
 			cache.sendCachedRequireJS('/app/js/site.js', options, res);
 		});
 
-        app.get('/*.js', function (req, res) {
+		app.get('/*.js', function(req, res) {
 			var filename = translateFilename(req.url);
 
 			if (doCache) {
@@ -52,14 +51,14 @@
 			}
 
 			cache.sendCachedStaticFile(req.url, filename, res, 'text/javascript');
-        });
+		});
 
-        app.get('/*.(html|png|ico|gif|eot|woff|ttf|svg)', function (req, res) {
+		app.get('/*.(html|png|ico|gif|eot|woff|ttf|svg)', function(req, res) {
 			var filename = translateFilename(req.url);
 
 			cache.sendCachedStaticFile(req.url, filename, res);
-        });
+		});
 
-    };
+	};
 
 }());

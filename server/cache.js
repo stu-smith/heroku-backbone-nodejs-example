@@ -45,7 +45,7 @@
 				result = r;
 
 				if (!result) {
-					console.error('Warning: falsy for "' + key + '"');
+					console.trace('Warning: falsy for "' + key + '"');
 				}
 
 				cache[key] = result;
@@ -127,7 +127,7 @@
 
 			requirejs.optimize(fileOptions, function () {
 				var output = fs.readFileSync(fileOptions.out);
-				
+
 				fs.unlinkSync(fileOptions.out);
 				console.log('Done optimizing JS (' + Math.ceil(output.length / 1024) + ' kb)');
 

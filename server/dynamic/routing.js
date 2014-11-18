@@ -49,7 +49,7 @@
 			app.get(page.path, function (req, res) {
 				var options;
 
-				if (page.path === '/' && req.session.user) {
+				if (page.path === '/' && req.session && req.session.user) {
 					res.redirect('/app/#!/');
 				} else {
 					options = {

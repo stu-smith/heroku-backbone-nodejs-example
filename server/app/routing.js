@@ -1,26 +1,29 @@
-(function () {
+(function() {
 
-    'use strict';
+	'use strict';
 
-    var Handlebars = require('handlebars');
+	var Handlebars = require('handlebars');
 
-    module.exports.setupRouting = function (app, conn, cache) {
+	module.exports.setupRouting = function(app, conn, cache) {
 
-        app.get('/app/', function (req, res) {
-            var options = {
-                transformPost: function (templateSource, callback) {
-                    var template = Handlebars.compile(String(templateSource)),
-                        model = {user: req.session.user, cacheId: cache.cacheId},
-                        html = template(model);
+		app.get('/app/', function(req, res) {
+			var options = {
+				transformPost: function(templateSource, callback) {
+					var template = Handlebars.compile(String(templateSource)),
+						model = {
+							user: req.session ? req.session.user : null,
+							cacheId: cache.cacheId
+						},
+						html = template(model);
 
-                    callback(html);
-                }
-            };
-            cache.cacheReadFile('/app/', './site/app/app.html', function (html) {
-                res.send(html);
-            }, options);
-        });
+					callback(html);
+				}
+			};
+			cache.cacheReadFile('/app/', './site/app/app.html', function(html) {
+				res.send(html);
+			}, options);
+		});
 
-    };
+	};
 
 }());

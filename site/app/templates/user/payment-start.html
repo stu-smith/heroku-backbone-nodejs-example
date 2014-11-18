@@ -1,0 +1,27 @@
+<h1>Make Payment</h1>
+
+{{#if_before_today expiry}}
+	<p>
+		Your licence expired on {{long_date expiry}}.
+	</p>
+{{/if_before_today}}
+
+{{#if_after_today expiry}}
+	<p>
+		Your licence will expire on {{long_date expiry}}.
+	</p>
+{{/if_after_today}}
+
+<p>Choose one of the following payment options:</p>
+
+<form class="js-options-form">
+</form>
+
+<button class="btn js-checkout">
+	<i class="icon-shopping-cart"></i>
+	Go to Checkout
+</button>
+
+<p>
+	<em>Clicking this will take you to a secure checkout page.</em>
+</p>

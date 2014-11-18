@@ -1,5 +1,5 @@
 #!/bin/sh
 
-pkill node
+pkill nodejs
 export DATABASE_URL=postgresql://postgres:postgres@localhost/example-app
 nodejs schema/schema.js
