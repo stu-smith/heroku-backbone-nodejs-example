@@ -24,7 +24,7 @@ define([
 		addLiveEvent: function (sel, fn) {
 			var self = this;
 
-			$(sel).live('click', function (e) {
+			$(sel).on('click', function (e) {
 				self[fn](e);
 			});
 		},
@@ -40,7 +40,7 @@ define([
 
 		render: function () {
 			var self = this,
-				html = self.renderTemplate(self.model.toJSONRecursive());
+					html = self.renderTemplate(self.model.toJSONRecursive());
 			$(self.el).html(html);
 			return self;
 		}

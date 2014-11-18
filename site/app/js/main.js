@@ -34,7 +34,11 @@ require.config({
 require([
 	'js/launcher',
 	'jquery',
-	'backbone.queryparams'
+	'backbone.queryparams',
+	'js/libs/extensions/jquery-extensions',
+	'js/libs/extensions/backbone-extensions',
+	'js/libs/backbone/backbone.queryparams',
+	'js/libs/extensions/handlebars-extensions'
 ], function (launcher) {
 
 	'use strict';

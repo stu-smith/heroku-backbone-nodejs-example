@@ -60,7 +60,7 @@ define([
 				}
 			});
 
-			$('a').live('click', function (e) {
+			$('a').on('click', function (e) {
 				var href = $(this).data('href');
 
 				if (href) {

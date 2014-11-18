@@ -136,7 +136,9 @@ define([
 			var appRouter;
 
 			Backbone.pubSub = _.extend({}, Backbone.Events);
-			Backbone.pubSub = _.bindAll(Backbone.pubSub);
+			// Backbone.pubSub = _.bindAll(Backbone.pubSub);
+
+			Backbone.pubSub = _.bindAll.apply(_, [Backbone.pubSub].concat(_.functions(Backbone.pubSub)));
 
 			appRouter = new AppRouter();
 			appRouter.model = appModel;
