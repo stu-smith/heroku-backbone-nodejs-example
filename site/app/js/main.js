@@ -3,7 +3,6 @@ require.config({
 		jquery: 'js/libs/jquery/jquery-cdn',
 		underscore: 'js/libs/underscore/underscore-min',
 		backbone: 'js/libs/backbone/backbone-max',
-		'backbone.queryparams': 'js/libs/backbone/backbone.queryparams',
 		handlebars: 'js/libs/handlebars/handlebars-lib',
 		async: 'js/libs/async/async',
 		templates: 'templates'
@@ -34,10 +33,8 @@ require.config({
 require([
 	'js/launcher',
 	'jquery',
-	'backbone.queryparams',
 	'js/libs/extensions/jquery-extensions',
 	'js/libs/extensions/backbone-extensions',
-	'js/libs/backbone/backbone.queryparams',
 	'js/libs/extensions/handlebars-extensions'
 ], function (launcher) {
 

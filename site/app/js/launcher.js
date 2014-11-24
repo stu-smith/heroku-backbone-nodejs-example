@@ -14,7 +14,7 @@ define([
 
 		appLoginStatus = window._loginStatus;
 
-		if (wpLoginStatus) {
+		if (appLoginStatus) {
 			var loginStatus = App.model.get('loginStatus');
 
 			loginStatus.set({

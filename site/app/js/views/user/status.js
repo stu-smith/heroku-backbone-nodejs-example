@@ -24,7 +24,7 @@ define([
 		addLiveEvent: function (sel, fn) {
 			var self = this;
 
-			$(sel).on('click', function (e) {
+			$('html').on('click', sel, function (e) {
 				self[fn](e);
 			});
 		},
