@@ -47,7 +47,7 @@ define([
 					return;
 				}
 
-				if (e.srcElement.localName === 'textarea') {
+				if (e.target.localName === 'textarea') {
 					return;
 				}
 

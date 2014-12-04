@@ -38,6 +38,10 @@
 		redis = require("redis").createClient();
 	}
 
+	redis.on('error', function (err) {
+  	console.log('Redis error ' + err);
+	});
+
 	console.log('--> Express...');
 
 	app = express();

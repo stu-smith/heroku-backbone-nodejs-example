@@ -47,14 +47,6 @@ define([
 		});
 	};
 
-	Loading.prototype.awaitEvents = function (callback) {
-		this.awaitUserCollection('events', callback);
-	};
-
-	Loading.prototype.awaitPeople = function (callback) {
-		this.awaitUserCollection('people', callback);
-	};
-
 	Loading.prototype.awaitCollection = function (data, item, collection, callback) {
 		var itemValue = data[item], output;
 
@@ -75,22 +67,6 @@ define([
 				callback(null, _.extend(data, output));
 			}});
 		}
-	};
-
-	Loading.prototype.awaitGuests = function (data, callback) {
-		this.awaitCollection(data, 'event', 'guests', callback);
-	};
-
-	Loading.prototype.awaitTables = function (data, callback) {
-		this.awaitCollection(data, 'event', 'tables', callback);
-	};
-
-	Loading.prototype.awaitSeats = function (data, callback) {
-		this.awaitCollection(data, 'event', 'seats', callback);
-	};
-
-	Loading.prototype.awaitTodos = function (data, callback) {
-		this.awaitCollection(data, 'event', 'todos', callback);
 	};
 
 	return Loading;

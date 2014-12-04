@@ -18,14 +18,7 @@ define([
 		onUserChange: function (status, user) {
 			var self = this;
 
-			this.set({'loggedIn': !!user});
-
-			if (user) {
-				user.events.on('all', function (eventName) {
-					self.trigger('events:' + eventName);
-				});
-				user.events.fetch();
-			}
+			self.set({'loggedIn': !!user});
 		},
 
 		toString: function () {
